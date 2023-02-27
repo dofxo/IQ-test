@@ -6,9 +6,6 @@
     font-family: 'Ubuntu', sans-serif;
 }
 
-
-
-
 body {
     margin: 0;
     min-height: 100vh;
@@ -72,7 +69,7 @@ body {
     padding: 5px;
     transition: 0.2s;
     overflow: hidden;
-    background-color: #6756BE;
+    background-color: #9e9ea2;
     font-size: 17px;
     transition: 0.1s;
 }
@@ -105,6 +102,7 @@ body {
     transform: scale(0.9);
 }
 
+
 /* test question section */
 #main-test-box {
     display: flex;
@@ -122,6 +120,7 @@ body {
 #main-test-box>img {
     width: fit-content;
     border: 1px solid;
+    border-radius: 20px;
 
 }
 
@@ -129,9 +128,10 @@ body {
     padding: 20px 10px;
     width: 90%;
     height: fit-content;
-    border: 1px solid;
     display: flex;
     justify-content: space-evenly;
+
+
 }
 
 #answers img {
@@ -139,6 +139,12 @@ body {
     border: 1px solid;
     width: 10%;
     transition: 0.1s;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+#answers img:hover {
+    background: #8464ec55;
 }
 
 #answers img:active {
@@ -154,4 +160,79 @@ body {
     justify-content: space-between;
     width: 50%;
     font-size: 20px;
+}
+
+/* result */
+
+#result {
+    position: relative;
+    width: 55vw;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to right, #d1cfdd, #a7a1d8);
+    border-radius: 20px;
+
+}
+
+#result>p {
+    color: #ad1457;
+    font-size: 20px;
+    margin: 15px 0;
+}
+
+
+
+
+#result>p:first-of-type {
+    padding: 50px 0 0 0;
+}
+
+#wasted-time-var,
+#score-var,
+#user-name-var {
+    color: #000080;
+}
+
+#restart-button {
+    position: absolute;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    width: 30%;
+    padding: 7px 5px;
+    overflow: hidden;
+    background-color: #6756BE;
+    font-size: 17px;
+    transition: 0.1s;
+    bottom: 15%;
+}
+
+#restart-button::after {
+    content: "";
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 10px;
+    transition: 0.1s linear;
+    width: 100%;
+    height: 100%;
+    background-color: #8464ec81;
+    border-radius: inherit;
+    transform: translateX(-105%);
+    transition: 0.3s linear;
+}
+
+#restart-button:hover::after {
+    transform: translateX(0);
+
+}
+
+#restart-button:active {
+    transform: scale(0.9);
 }
