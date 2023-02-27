@@ -1,0 +1,157 @@
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+/* general */
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #a7a1d8;
+    background-position: center;
+    background-size: contain;
+
+}
+
+/* test start section */
+#test-start {
+    width: 35vw;
+    min-height: 500px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    background: linear-gradient(to right, #d1cfdd, #a7a1d8);
+
+}
+
+#test-start h1 {
+    color: #6756BE;
+    font-size: 35px;
+    height: 5px;
+    display: flex;
+    align-items: center;
+}
+
+#test-start input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid #6756BE;
+    padding: 0 0 10px 0;
+    font-size: 17px;
+
+}
+
+/* sets the display of the arrows to none */
+#test-start input::-webkit-outer-spin-button,
+#test-start input::-webkit-inner-spin-button {
+    display: none;
+}
+
+#test-start input::placeholder {
+    color: black;
+}
+
+#test-start button {
+    position: relative;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    width: 35%;
+    padding: 5px;
+    transition: 0.2s;
+    overflow: hidden;
+    background-color: #6756BE;
+    font-size: 17px;
+    transition: 0.1s;
+}
+
+#test-start button::after {
+    content: "";
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 10px;
+    transition: 0.1s linear;
+    width: 100%;
+    height: 100%;
+    background-color: #8464ec81;
+    border-radius: inherit;
+    transform: translateX(-105%);
+    transition: 0.3s linear;
+}
+
+#test-start button:hover::after {
+    transform: translateX(0);
+
+}
+
+#test-start button:active {
+    transform: scale(0.9);
+}
+
+/* test question section */
+#main-test-box {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px 0;
+    width: 60vw;
+    min-height: 750px;
+    border-radius: 20px;
+    background: linear-gradient(to right, #d1cfdd, #a7a1d8);
+
+}
+
+#main-test-box>img {
+    width: fit-content;
+    border: 1px solid;
+
+}
+
+#answers {
+    padding: 20px 10px;
+    width: 90%;
+    height: fit-content;
+    border: 1px solid;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#answers img {
+    cursor: pointer;
+    border: 1px solid;
+    width: 10%;
+    transition: 0.1s;
+}
+
+#answers img:active {
+    transform: scale(0.8);
+}
+
+/* game status */
+
+#game-status {
+    position: absolute;
+    top: 5%;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    font-size: 20px;
+}
