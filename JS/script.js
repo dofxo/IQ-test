@@ -141,7 +141,7 @@ function newSlide(questionEl, answersEl) {
         if (currentTest < 13) {
             for (let i = 1; i <= 6; i++) {
                 let eachAnswer = document.createElement('img')
-                eachAnswer.setAttribute('src', `/Images/${currentTest}/${currentTest}-${i}.png`)
+                eachAnswer.setAttribute('src', `../Images/${currentTest}/${currentTest}-${i}.png`)
                 eachAnswer.setAttribute('answerNumber', `${i}`)
                 answersEl.appendChild(eachAnswer)
 
@@ -152,7 +152,7 @@ function newSlide(questionEl, answersEl) {
         else {
             for (let i = 1; i <= 8; i++) {
                 let eachAnswer = document.createElement('img')
-                eachAnswer.setAttribute('src', `/Images/${currentTest}/${currentTest}-${i}.png`)
+                eachAnswer.setAttribute('src', `../Images/${currentTest}/${currentTest}-${i}.png`)
                 eachAnswer.setAttribute('answerNumber', `${i}`)
                 answersEl.appendChild(eachAnswer)
 
