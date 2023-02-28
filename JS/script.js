@@ -106,7 +106,7 @@ function mainTestElement() {
 
     // question element
     questionEl = document.createElement('img')
-    questionEl.setAttribute('src', `../Images/1/test1.png`)
+    questionEl.setAttribute('src', `images/1/test1.png`)
 
 
     // answers element
@@ -135,13 +135,13 @@ function newSlide(questionEl, answersEl) {
     if (currentTest <= 30) {
 
         // taqir dadane soal
-        questionEl.setAttribute('src', `../Images/${currentTest}/test${currentTest}.png`)
+        questionEl.setAttribute('src', `images/${currentTest}/test${currentTest}.png`)
 
         // taqir darane javab ha
         if (currentTest < 13) {
             for (let i = 1; i <= 6; i++) {
                 let eachAnswer = document.createElement('img')
-                eachAnswer.setAttribute('src', `../Images/${currentTest}/${currentTest}-${i}.png`)
+                eachAnswer.setAttribute('src', `images/${currentTest}/${currentTest}-${i}.png`)
                 eachAnswer.setAttribute('answerNumber', `${i}`)
                 answersEl.appendChild(eachAnswer)
 
@@ -152,7 +152,7 @@ function newSlide(questionEl, answersEl) {
         else {
             for (let i = 1; i <= 8; i++) {
                 let eachAnswer = document.createElement('img')
-                eachAnswer.setAttribute('src', `../Images/${currentTest}/${currentTest}-${i}.png`)
+                eachAnswer.setAttribute('src', `images/${currentTest}/${currentTest}-${i}.png`)
                 eachAnswer.setAttribute('answerNumber', `${i}`)
                 answersEl.appendChild(eachAnswer)
 
@@ -368,7 +368,7 @@ function showResult() {
 
     // testScore EL
     testScore = document.createElement('p')
-    testScore.textContent = `Score shoma barabar ast ba : `
+    testScore.textContent = `Score shoma az 300, barabar ast ba : `
     testScore.appendChild(scoreSpan)
 
     // iq-status EL
