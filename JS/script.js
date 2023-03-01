@@ -354,10 +354,10 @@ function checkingCorrectAnswer() {
 let payam = ''
 function scoreStatus() {
 
-    if (score <= 75) {
+    if (score <= 80) {
         payam = 'IQ shoma zire miangin ast'
     }
-    if (75 < score && score < 225) {
+    if (80 < score && score < 225) {
         payam = 'IQ shoma motevaset ast'
     }
 
