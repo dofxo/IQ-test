@@ -1,9 +1,9 @@
 /* font */
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
 
 /* general */
 * {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Tilt Neon', cursive;
 }
 
 body {
@@ -13,9 +13,6 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #a7a1d8;
-    background-position: center;
-    background-size: contain;
-
 }
 
 /* test start section */
@@ -110,7 +107,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 20px 0;
-    width: 60vw;
+    min-width: 60vw;
     min-height: 750px;
     border-radius: 20px;
     background: linear-gradient(to right, #d1cfdd, #a7a1d8);
@@ -121,7 +118,6 @@ body {
     width: fit-content;
     border: 1px solid;
     border-radius: 20px;
-
 }
 
 #answers {
@@ -130,26 +126,32 @@ body {
     height: fit-content;
     display: flex;
     justify-content: space-evenly;
+    gap: 0 20px;
 
 
 }
 
 #answers img {
+    position: relative;
     cursor: pointer;
     border: 1px solid;
-    width: 10%;
+    min-width: 100px;
     transition: 0.1s;
     border-radius: 10px;
     transition: 0.2s;
 }
 
+
 #answers img:hover {
-    background: #8464ec55;
+    background: #8464eca6;
+    transform: translateY(-10px);
 }
 
 #answers img:active {
     transform: scale(0.8);
 }
+
+
 
 /* game status */
 
@@ -166,13 +168,20 @@ body {
 
 #result {
     position: relative;
-    width: 55vw;
+    width: 50vw;
     min-height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background: linear-gradient(to right, #d1cfdd, #a7a1d8);
     border-radius: 20px;
+
+}
+
+@media screen and (min-width:1200px) {
+    #result {
+        width: 40vw;
+    }
 
 }
 
@@ -235,4 +244,108 @@ body {
 
 #restart-button:active {
     transform: scale(0.9);
+}
+
+/* loader container */
+
+#loader-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loader-container span {
+    background: linear-gradient(to right, #000080, #ad1457, #fff);
+    position: absolute;
+    top: 200%;
+    font-size: 30px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+}
+
+#loader-container .ring {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: -30px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 4px solid #000080;
+    animation: animate 2s linear infinite;
+    animation-delay: -1%;
+}
+
+#loader-container .ring::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 12px;
+    right: 12px;
+    border-radius: 50%;
+    background-color: #000080;
+    box-shadow: 0 0 0 5px #00008033,
+        0 0 0 10px #00008022,
+        0 0 0 20px #00008011,
+        0 0 0 30px #00008000;
+}
+
+#loader-container .ring:nth-child(2) {
+    animation: animate2 2s linear infinite;
+    border-left: 4px solid #c2185D;
+    border-top: 4px solid transparent;
+
+}
+
+#loader-container .ring:nth-child(2)::before {
+    top: initial;
+    left: 12px;
+    bottom: 12px;
+    background-color: #c2185D;
+    box-shadow: 0 0 0 5px #c2185D33,
+        0 0 0 10px #c2185D22,
+        0 0 0 20px #c2185D11,
+        0 0 0 30px #c2185D00;
+}
+
+#loader-container .ring:nth-child(3) {
+    position: absolute;
+    top: -66.66px;
+    animation: animate2 2s linear infinite;
+    animation-delay: -3%;
+    border-top: 4px solid transparent;
+    border-left: 4px solid #fff;
+
+}
+
+#loader-container .ring:nth-child(3)::before {
+    top: initial;
+    left: 12px;
+    bottom: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 5px #ffffff33,
+        0 0 0 10px #ffffff22,
+        0 0 0 20px #ffffff11,
+        0 0 0 30px #ffffff00;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }

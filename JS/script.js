@@ -1,50 +1,54 @@
-// variables
-const body = document.body
+// general variables
+const body = document.body,
+    head = document.head
 
-let startBtn
-let userName
-let userAge
+
+
 
 // event listener baraye load shodane DOM
+// pas az load shodane safhe element asli baraye safhe login load mishe
+// function marboot be validate input ha run mishe
 window.addEventListener('DOMContentLoaded', () => {
+    favIconLink()
     testStartElement()
-    startBtn.disabled = true
-    validation()
-
-
 })
 
 // functions :
 
 // testStart Element
 // tooye function ba sakhtan element haye HTML oonaro amade mikone baraye add shodan be Body 
-let nameInput, ageInput
+let nameInput, ageInput, startBtn, mainSection, iqTestTitle
+
 function testStartElement() {
 
     // section testStartElement ro misaze va zir majmooe hash ro behesh ezafe mikone 
-    const mainSection = document.createElement('section')
-    mainSection.setAttribute('id', 'test-start')
+    mainSection = document.createElement('section')
+    mainSection.id = 'test-start'
 
     // h1
-    const iqTestTitle = document.createElement('h1')
-    iqTestTitle.setAttribute('id', 'test-title')
+    iqTestTitle = document.createElement('h1')
+    iqTestTitle.id = ' test-title'
     iqTestTitle.textContent = 'IQ TEST'
 
     // name input
     nameInput = document.createElement('input')
-    nameInput.setAttribute('id', 'user-name')
+    nameInput.id = 'user-name'
     nameInput.placeholder = 'Enter your name : '
 
     // age input
     ageInput = document.createElement('input')
     ageInput.setAttribute('type', 'number')
-    ageInput.setAttribute('id', 'user-age')
+    ageInput.id = 'user-age'
     ageInput.placeholder = 'Enter your age : '
 
     // start button
     startBtn = document.createElement('button')
-    startBtn.setAttribute('id', 'start')
+    startBtn.id = 'start'
     startBtn.textContent = 'START'
+
+    // be soorate default dokme qeyr fa'al hast
+    startBtn.disabled = true
+
 
 
     // zir majmoome haye section testStartElement ro behesh ezafe mikone
@@ -60,22 +64,21 @@ function testStartElement() {
     // event listener baraye startBtn
 
     startBtn.addEventListener('click', () => {
-        startTest(nameInput, mainSection)
+        startTest()
         questionCounter()
         timer()
     })
 
+    validation(nameInput, ageInput)
 
 }
 
 // start function
 // bad az click shodan rooye dokme start, mohtavaye matni sen va esm karbar ra tooye moteqayer haye ageInputValue va nameInputValue zakhire mikone
 // va badesh safhe soalat ro load mikone    
-
-
 let nameInputValue
 
-function startTest(nameInput, mainSection) {
+function startTest() {
 
     // value input haro be moteqayer nesbat mide
     nameInputValue = nameInput.value
@@ -92,7 +95,6 @@ function startTest(nameInput, mainSection) {
 
 // mainTestELement
 // tooye function ba sakhtan element haye HTML oonaro amade mikone baraye add shodan be Body
-
 let mainTestDiv, questionEl, answersEl, eachAnswer, questionCounterEl, timerEl
 
 let currentTest = 1
@@ -101,7 +103,7 @@ function mainTestElement() {
 
     // main-test element
     mainTestDiv = document.createElement('section')
-    mainTestDiv.setAttribute('id', 'main-test-box')
+    mainTestDiv.id = 'main-test-box'
 
 
     // question element
@@ -111,10 +113,10 @@ function mainTestElement() {
 
     // answers element
     answersEl = document.createElement('div')
-    answersEl.setAttribute('id', 'answers')
+    answersEl.id = 'answers'
 
     // each answer
-    newSlide(questionEl, answersEl)
+    newSlide()
 
 
     // zir majmoome haye div mainTest ro behesh ezafe mikone
@@ -126,11 +128,12 @@ function mainTestElement() {
     // div aslio be body ezafe mikone
     body.appendChild(mainTestDiv)
 
+
 }
 
 //  newSlide function
 // bad az click shodan bar roye har javab, soale badi be hamrahe javab hash load mishe
-function newSlide(questionEl, answersEl) {
+function newSlide() {
 
     if (currentTest <= 30) {
 
@@ -196,10 +199,7 @@ function questionCounter() {
 
 // timer function
 // bad az click shodan bar rooye dokme start timer 15 daqiqe ei fa'al mishe
-let timerInterval
-
-let currentMin
-let currentSec
+let timerInterval, currentMin, currentSec
 
 function timer() {
 
@@ -246,22 +246,21 @@ function timer() {
 // fuction game status
 // pas as click shodan bar rooye dokme start
 // status marboot be game roo tooye body va balaye div soal ha namayesh mide
-
 let gameStatus
 
 function gameStatusEl() {
 
     // gameStatus
     gameStatus = document.createElement('div')
-    gameStatus.setAttribute('id', 'game-status')
+    gameStatus.id = 'game-status'
 
     // question counter 
     questionCounterEl = document.createElement('span')
-    questionCounterEl.setAttribute('id', 'question-counter')
+    questionCounterEl.id = 'question-counter'
 
     // timer 
     timerEl = document.createElement('span')
-    timerEl.setAttribute('id', 'timer')
+    timerEl.id = 'timer'
 
 
     // zir majmooe haye game status ro behesh ezafe mikone
@@ -280,29 +279,71 @@ function endGame() {
     gameStatus.style.display = 'none'
     timerEl.textContent = ''
     checkingCorrectAnswer()
-    scoreStatus()
-    showResult()
-    wastedTime()
+    loader()
+}
+
+
+
+// loader El
+// bad az tamam shodan test va qabl az namayeshe natayej ye safhe loading miad va bad az 3s natayej neshoon dade mishe
+let loaderContianer, ringEl, loadingText
+
+function loader() {
+
+    // loaderContainer
+    loaderContianer = document.createElement('div')
+    loaderContianer.id = 'loader-container'
+
+    // loadingText
+    loadingText = document.createElement('span')
+    loadingText.textContent = 'Loading ...'
+
+
+    // zir majmooe haye container loader
+
+    for (let i = 1; i <= 3; i++) {
+
+        ringEl = document.createElement('div')
+        ringEl.classList.add('ring')
+        loaderContianer.appendChild(ringEl)
+
+    }
+    // ezafe kardan span marboote be zir majmooe loaderContainer
+    loaderContianer.appendChild(loadingText)
+    // ezafe kardan container loader
+    body.appendChild(loaderContianer)
+
+    // bad az 3 sanie element natayej namayesh dade beshe
+    setTimeout(() => {
+        loaderContianer.style.display = 'none'
+        showResult()
+        scoreStatus()
+        wastedTime()
+    }, 3500)
+
+
 
 
 }
 
 // correct answers
 let score = 0
+
 let correctAnswersArray = [3, 1, 5, 5, 2, 1, 2, 2, 2, 6, 4, 1, 4, 7, 2, 3, 1, 6, 5, 8, 4, 4, 7, 6, 4, 7, 7, 3, 2, 8]
+let selectedAnswersArray = []
 
-let selectedAnswers = []
-
-// shomare har javab pas as click shodan dar array e selectedAnswers zakhire mishe
+// shomare har javab pas as click shodan dar array e selectedAnswersArray zakhire mishe
 function answerSelection(eachAnswer) {
     let answerNumber = eachAnswer.getAttribute('answerNumber')
-    selectedAnswers.push(answerNumber)
+    // changes the type of the answers number from string to number and pushesh them into the array
+
+    selectedAnswersArray.push(Number(answerNumber))
 }
 // baraye har soal, besoorate ekhtesasi check mishe ke aya index haye javab va soal barabar hastan ya na
 function checkingCorrectAnswer() {
 
     for (let i = 0; i < correctAnswersArray.length; i++) {
-        if (correctAnswersArray[i] == selectedAnswers[i]) {
+        if (correctAnswersArray[i] == selectedAnswersArray[i]) {
             score += 10
         }
     }
@@ -316,7 +357,7 @@ function scoreStatus() {
     if (score <= 75) {
         payam = 'IQ shoma zire miangin ast'
     }
-    if (75 < score < 225) {
+    if (75 < score && score < 225) {
         payam = 'IQ shoma motevaset ast'
     }
 
@@ -347,14 +388,15 @@ function scoreStatus() {
 // showResult
 // score va payam ekhtesasi ro tooye element haye jadid sakhte shode qarar mide
 let resultEL, testScore, iqStatus, resetBtn, wastedTimeEl, userNameEl
+
 function showResult() {
     // main EL
     resultEL = document.createElement('section')
-    resultEL.setAttribute('id', 'result')
+    resultEL.id = 'result'
 
     // userName var
     let userNameVar = document.createElement('span')
-    userNameVar.setAttribute('id', 'user-name-var')
+    userNameVar.id = 'user-name-var'
     userNameVar.textContent = nameInputValue
     // userName
     userNameEl = document.createElement('p')
@@ -363,7 +405,7 @@ function showResult() {
 
     // testScore El variable span
     let scoreSpan = document.createElement('span')
-    scoreSpan.setAttribute('id', 'score-var')
+    scoreSpan.id = 'score-var'
     scoreSpan.textContent = score
 
     // testScore EL
@@ -377,7 +419,7 @@ function showResult() {
 
     // restart button
     resetBtn = document.createElement('button')
-    resetBtn.setAttribute('id', 'restart-button')
+    resetBtn.id = 'restart-button'
     resetBtn.textContent = 'RESTART'
 
     //wasted time
@@ -394,9 +436,7 @@ function showResult() {
 
 
     // event listener baraye dokme reset
-    resetBtn.addEventListener('click', () => {
-        resetTest(resultEL)
-    })
+    resetBtn.addEventListener('click', resetTest)
 }
 // wastedTime
 // time separi shode ro hesab mikone va dar khorooji namayesh mide
@@ -413,7 +453,7 @@ function wastedTime() {
     }
     // baraye avaz kardan range moteqayer
     let wastedTimeSpan = document.createElement('span')
-    wastedTimeSpan.setAttribute('id', 'wasted-time-var')
+    wastedTimeSpan.id = 'wasted-time-var'
     wastedTimeSpan.textContent = `${wastedMin} : ${wastedSec}`
 
     wastedTimeEl.textContent = `Time separi shode shoma barabar ast ba : `
@@ -421,36 +461,36 @@ function wastedTime() {
 
 }
 // kole test ro reset mikone
-function resetTest(resultEL) {
+function resetTest() {
+    selectedAnswersArray = []
     score = 0
     currentTest = 1
     resultEL.style.display = 'none'
-    testStartElement()
     clearInterval(timerInterval)
+    testStartElement()
 }
 
-
 // function validate login page
-function validation() {
-    userName = document.querySelector('#user-name')
-    userAge = document.querySelector('#user-age')
+
+
+function validation(nameInput, ageInput) {
 
     // event listener baraye input ha
-    userAge.addEventListener('blur', () => {
-        inputValueValidation(userAge)
+    ageInput.addEventListener('blur', () => {
+        inputValueValidation(ageInput)
         validCheck()
     })
 
-    userName.addEventListener('blur', () => {
-        inputValueValidation(userName)
+    nameInput.addEventListener('blur', () => {
+        inputValueValidation(nameInput)
         validCheck()
     })
-    userAge.addEventListener('keypress', () => {
-        inputValueValidation(userAge)
+    ageInput.addEventListener('keypress', () => {
+        inputValueValidation(ageInput)
         validCheck()
     })
-    userName.addEventListener('keypress', () => {
-        inputValueValidation(userName)
+    nameInput.addEventListener('keypress', () => {
+        inputValueValidation(nameInput)
         validCheck()
     })
 
@@ -473,8 +513,8 @@ function inputValueValidation(el) {
 
 // check mikone ke aya hameye input ha class valid ro daran va agar dashtan dokme start faal beshe
 function validCheck() {
-    if (userName.classList.contains('valid')
-        && userAge.classList.contains('valid')) {
+    if (nameInput.classList.contains('valid')
+        && ageInput.classList.contains('valid')) {
         startBtn.disabled = false
         startBtn.style.backgroundColor = '#6756BE'
     }
@@ -484,3 +524,13 @@ function validCheck() {
     }
 }
 
+// ezafe kardan favicon be html
+let faviconLink
+
+function favIconLink() {
+    faviconLink = document.createElement('link')
+    faviconLink.setAttribute('rel', 'icon')
+    faviconLink.setAttribute('href', 'images/favicon.png')
+
+    head.appendChild(faviconLink)
+}
