@@ -108,7 +108,7 @@ function mainTestElement() {
 
     // question element
     questionEl = document.createElement('img')
-    questionEl.setAttribute('src', `/Images/1/test1.png`)
+    questionEl.setAttribute('src', `Images/1/test1.png`)
 
 
     // answers element
@@ -138,13 +138,13 @@ function newSlide() {
     if (currentTest <= 30) {
 
         // taqir dadane soal
-        questionEl.setAttribute('src', `/Images/${currentTest}/test${currentTest}.png`)
+        questionEl.setAttribute('src', `Images/${currentTest}/test${currentTest}.png`)
 
         // taqir darane javab ha
         if (currentTest < 13) {
             for (let i = 1; i <= 6; i++) {
                 let eachAnswer = document.createElement('img')
-                eachAnswer.setAttribute('src', `/Images/${currentTest}/${currentTest}-${i}.png`)
+                eachAnswer.setAttribute('src', `Images/${currentTest}/${currentTest}-${i}.png`)
                 eachAnswer.setAttribute('answerNumber', `${i}`)
                 answersEl.appendChild(eachAnswer)
 
@@ -155,7 +155,7 @@ function newSlide() {
         else {
             for (let i = 1; i <= 8; i++) {
                 let eachAnswer = document.createElement('img')
-                eachAnswer.setAttribute('src', `/Images/${currentTest}/${currentTest}-${i}.png`)
+                eachAnswer.setAttribute('src', `Images/${currentTest}/${currentTest}-${i}.png`)
                 eachAnswer.setAttribute('answerNumber', `${i}`)
                 answersEl.appendChild(eachAnswer)
 
@@ -530,7 +530,7 @@ let faviconLink
 function favIconLink() {
     faviconLink = document.createElement('link')
     faviconLink.setAttribute('rel', 'icon')
-    faviconLink.setAttribute('href', '/Images/favicon.png')
+    faviconLink.setAttribute('href', 'Images/favicon.png')
 
     head.appendChild(faviconLink)
 }
