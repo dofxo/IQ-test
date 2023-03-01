@@ -530,7 +530,7 @@ let faviconLink
 function favIconLink() {
     faviconLink = document.createElement('link')
     faviconLink.setAttribute('rel', 'icon')
-    faviconLink.setAttribute('href', 'images/favicon.png')
+    faviconLink.setAttribute('href', '../images/favicon.png')
 
     head.appendChild(faviconLink)
 }
