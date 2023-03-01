@@ -410,7 +410,7 @@ function showResult() {
 
     // testScore EL
     testScore = document.createElement('p')
-    testScore.textContent = `Score shoma az 300, barabar ast ba : `
+    testScore.textContent = `emtiaz shoma az 300 : `
     testScore.appendChild(scoreSpan)
 
     // iq-status EL
@@ -456,7 +456,7 @@ function wastedTime() {
     wastedTimeSpan.id = 'wasted-time-var'
     wastedTimeSpan.textContent = `${wastedMin} : ${wastedSec}`
 
-    wastedTimeEl.textContent = `Time separi shode shoma barabar ast ba : `
+    wastedTimeEl.textContent = `Time separi shode : `
     wastedTimeEl.appendChild(wastedTimeSpan)
 
 }
