@@ -317,8 +317,7 @@ function loader() {
     setTimeout(() => {
         loaderContianer.style.display = 'none'
         showResult()
-        scoreStatus()
-        wastedTime()
+
     }, 3500)
 
 
@@ -378,11 +377,8 @@ function scoreStatus() {
     else if (score >= 220) {
         payam += ' va shabih be Leonard Davinci ast.'
     }
-
-
-
-
-
+    // set kardan payam
+    iqStatus.textContent = payam
 }
 
 // showResult
@@ -415,7 +411,7 @@ function showResult() {
 
     // iq-status EL
     iqStatus = document.createElement('p')
-    iqStatus.textContent = payam
+    scoreStatus()
 
     // restart button
     resetBtn = document.createElement('button')
@@ -424,6 +420,7 @@ function showResult() {
 
     //wasted time
     wastedTimeEl = document.createElement('p')
+    wastedTime()
 
     // ezafe kardan zir majmooe be div Main EL
     resultEL.appendChild(userNameEl)
@@ -437,6 +434,9 @@ function showResult() {
 
     // event listener baraye dokme reset
     resetBtn.addEventListener('click', resetTest)
+
+
+
 }
 // wastedTime
 // time separi shode ro hesab mikone va dar khorooji namayesh mide
