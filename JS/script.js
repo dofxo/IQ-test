@@ -406,7 +406,7 @@ function showResult() {
 
     // testScore EL
     testScore = document.createElement('p')
-    testScore.textContent = `emtiaz shoma az 300 : `
+    testScore.textContent = `Emtiaz shoma az 300 : `
     testScore.appendChild(scoreSpan)
 
     // iq-status EL
