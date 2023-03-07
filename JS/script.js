@@ -103,6 +103,10 @@ function capitalization(value) {
     let arrayOfCapitalizeName = []
 
     arrayOfValueName.forEach(valueName => {
+
+        // string avalie ro tabdil mikone be loweCase ( baraye jelo giri az moshkelat typi karbar (agar vasate string az upperCase estefade shode bashe) )
+        valueName = valueName.toLowerCase()
+
         let firstLetters = valueName.charAt(0)
         valueName = valueName.replace(firstLetters, firstLetters.toUpperCase())
 
