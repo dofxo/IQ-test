@@ -160,7 +160,8 @@ body {
 
 #answers img:hover {
     background: #8464eca6;
-    transform: translateY(-10px);
+    transform: translateY(-5px);
+
 }
 
 #answers img:active {

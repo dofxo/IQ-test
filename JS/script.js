@@ -82,6 +82,8 @@ function startTest() {
 
     // value input haro be moteqayer nesbat mide
     nameInputValue = nameInput.value
+    // value vared shode tavasot karbar ro capitalize shode update mikone
+    nameInputValue = capitalization(nameInputValue)
 
     // display testStart element ro none mikone
     mainSection.style.display = 'none'
@@ -89,6 +91,26 @@ function startTest() {
     // element maintest(soalat) ro jaygozin safhe login mikone
     mainTestElement()
     gameStatusEl()
+
+}
+
+
+// capitalization
+// value texti ke be onvane voroodi migiraro capitalize mikone (ali ahmadi) ==> (Ali Ahmadi)
+function capitalization(value) {
+
+    let arrayOfValueName = value.split(' ')
+    let arrayOfCapitalizeName = []
+
+    arrayOfValueName.forEach(valueName => {
+        let firstLetters = valueName.charAt(0)
+        valueName = valueName.replace(firstLetters, firstLetters.toUpperCase())
+
+        arrayOfCapitalizeName.push(valueName)
+    })
+
+    // capitalized string.
+    return arrayOfCapitalizeName.join(' ')
 
 }
 
