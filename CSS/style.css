@@ -175,7 +175,7 @@ body {
 #game-status {
     position: absolute;
     display: flex;
-    top: 8%;
+    top: 3%;
     width: 70%;
     justify-content: space-around;
     font-size: 20px;
